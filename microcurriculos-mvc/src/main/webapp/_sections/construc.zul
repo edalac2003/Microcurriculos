@@ -1,0 +1,36 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/_css/estilos.css" ?>
+
+<zk>
+<window border="none">
+	<borderlayout height="600px">
+		<north height="100px" border="none">
+			<include id="headerIdx" src="/_sections/header.zul" />
+		</north>
+		<east width="180px" border="none">
+			<label />
+		</east>
+		<west width="180px" border="none">
+			<label />
+		</west>
+		<center border="none" >
+						
+			<div align="center" height="500px" width="100%">
+				<hbox height="50px" />
+				<hbox align="center">
+					<image src="/_img/construc.png"/>
+				</hbox>
+				<hbox height="40px" />
+				<hbox  align="center">
+					<a href="/_ambientes/_admin/inicioAdmin.zul" label="Pagina de Inicio" sclass="tituloFondo"/>					
+				</hbox>
+			</div>
+			
+		</center>
+		<south height="90px" border="none">
+			<include id="footerIdx" src="/_sections/footer.zul" />
+		</south>
+		
+	</borderlayout>
+</window>
+</zk>

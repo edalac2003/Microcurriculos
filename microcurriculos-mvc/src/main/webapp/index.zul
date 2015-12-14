@@ -1,0 +1,67 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page title="Bienvenidos a la Sección de Administracion" contentType="text/html; charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/_css/estilos.css" ?>
+
+<zk>
+<window border="none"  apply="${inicioSesionCtrl}">
+	<borderlayout height="650px">
+		<north height="125px" border="0" sclass="fondoEncabezado">
+			<include id="headerIdx" src="/_sections/header.zul" />							
+		</north>
+		<west width="180px" border="0">
+			<label value="" />
+		</west>
+		<east width="180px" border="0">
+			<label></label>
+		</east>			
+		<center border="none">
+			<borderlayout width="300px">
+				<north height="80px" border="none" />
+				<west width="400px" border="none">
+					<div align="center">						
+						<image src="./_img/background/logo_udea.png" height="50%" width="50%"></image>
+					</div>					
+				</west>
+				<center border="none">
+					<div align="center" width="450px">
+						<vbox sclass="fondoNormal">
+					 		<groupbox height="230px" width="380px" mold="3d" closable="false" >
+					 			<caption>
+					 				<image src="./_img/icons/128x128/lock.png"></image>
+					 				<label value="Inicio de Sesion" sclass="tituloSession"></label>
+					 			</caption>
+					 			<div height="10px"></div>
+					 			<div align="center" height="50px">
+					 				<div height="20px">
+					 					<label value="Nombre de Usuario"></label>
+					 				</div>					 				
+				 					<textbox id="txtNombreUsuario" width="200px" />					 									 				
+					 			</div>						
+					 			<div align="center" height="60px">
+					 				<div height="20px">
+					 					<label value="Contraseña" width="200px"	></label>
+					 				</div>
+					 				<textbox id="txtPassword" type="password" width="200px"/>					 								 				
+					 			</div>
+					 			<div height="50px" align="center" sclass="fondoNormal">
+					 				<hbox align="center" height="50px">
+					 					<button id="btnAceptar" label="Aceptar" width="150px" />
+					 					<button id="btnOlvido" label="¿Olvido su Contraseña?"  width="150px" />
+					 				</hbox>					 				
+					 			</div>
+							</groupbox>
+						</vbox>						
+					</div>	
+				</center>			
+			</borderlayout>
+			
+			
+		</center>
+		<south border="0" height="100px" sclass="fondoEncabezado">		
+			<div> 
+				<include id="footerIdx" src="/_sections/footer.zul" /> 
+			</div>					
+		</south>
+	</borderlayout>
+</window>
+</zk>

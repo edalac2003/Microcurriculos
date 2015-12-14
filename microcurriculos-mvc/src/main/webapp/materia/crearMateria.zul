@@ -1,0 +1,224 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page title="Universidad de Antioquia" contentType="text/html;charset=UTF-8"?>
+
+<?link rel="stylesheet" type="text/css" href="/_css/estilos.css" ?>
+
+<zk>
+<!-- 	 -->
+	<window id="formaCrearMateria" border="0" apply="${crearMateriaCtrl}">
+		<borderlayout height="760px" width="1350px" apply="" >
+			<north height="130px" border="0" sclass="fondoEncabezado">
+				<div>
+					<div sclass="div_fecha" align="center">
+						<div sclass="cab_izquierda">
+							<a id="nlcSalir" label="Salir" sclass="enlace_salir"/>
+						</div>
+						<div sclass="cab_centro">
+							<label id="lblUsuarioLogin"/>
+						</div>
+						<div sclass="cab_derecha">
+							<label id="lblFechaActual" value="FechaActual"/>
+						</div>
+					</div>
+					<include id="headerIdx" src="/_sections/header.zul" />
+				</div>								
+			</north>
+			<west border="none" width="14%" />
+			<east width="14%" border="none" />
+			
+			<center border="none" >
+				<div align="center">
+					<borderlayout height="7200px">
+						<north border="0">
+							<toolbar id="tb" sclass="vista" height="45px" width="100%">
+								<toolbarbutton id="tool_home" label="Inicio" image="/_img/icons/32x32/home.png" href="/_ambientes/_admin/inicioAdmin.zul" />
+								<toolbarbutton id="tool_new" label="Nuevo" image="/_img/icons/32x32/new_32.png" />
+								<toolbarbutton id="tool_save" label="Guardar" image="/_img/icons/32x32/save.png" />
+								<toolbarbutton id="tool_update" label="Modificar Materia" image="/_img/icons/32x32/pencil_32.png" href="/materia/modificarMateria.zul"/>
+								<toolbarbutton id="tool_close" label="Regresar" image="/_img/icons/32x32/atras.png" href="/materia/inicio_mat.zul"/>
+							</toolbar>
+						</north>
+						<center border="none" autoscroll="true" >
+							<div align="center">
+								<separator />
+								<hlayout width="100%">
+									<hbox>
+										<groupbox mold="3d" width="300px" height="450px" closable="false">
+											<caption label="Buscar Materia" image="/_img/icons/32x32/materiaBusca.png" />
+											<hbox align="center">
+												<label value="Nombre" />
+												<textbox instant="true" id="txtFiltrarMateria" />
+											</hbox>
+
+											<listbox id="listBoxMaterias" emptyMessage="Sin registros" height="385px" style="margin-top:10px" rows="9">
+												<template name="model">
+													<listitem>
+														<listcell label="${each.vrNombre}" style="font-size:11px"></listcell>
+													</listitem>
+												</template>
+											</listbox>
+										</groupbox>
+									</hbox>
+									<hbox width="5px"></hbox>
+									
+									<hbox>
+										<groupbox mold="3d" width="650px" closable="false">
+											<caption image="/_img/icons/32x32/materiaNuevo.png" >
+												<label id="lblEncabezadoMateria" value="Crear Materia" ></label>
+											</caption>
+
+											<grid>
+												<columns>
+													<column width="18%" />
+													<column width="25%" />
+													<column width="18%" />
+													<column width="25%" />
+												</columns>
+												
+												
+												<rows>																										
+													<row>
+														<cell>
+															<label value="Unidad Academica" />
+														</cell>
+														<cell>
+															<combobox id="cmbUnidadAcademica" width="97%"/>
+														</cell>
+														<cell>
+															<label value="Departamento" />
+														</cell>
+														<cell>
+															<combobox id="cmbDependencia"  width="97%" />
+														</cell>
+													</row>	
+													
+													<row>
+														<cell>
+															<label value="Núcleo" sclass="campoobligatorio" />
+														</cell>
+														<cell>
+															<combobox id="cmbNucleo" width="97%" />
+														</cell>
+														
+														<cell>
+															<label value="Area Materia" sclass="campoobligatorio" />
+														</cell>
+														<cell>
+															<combobox id="cmbArea" width="97%" />															
+														</cell>
+													</row>
+													
+													<row>
+														<cell>
+															<label value="Código Materia" sclass="campoobligatorio" />
+														</cell>
+														<cell colspan="3">
+															<textbox id="txtCodigo" width="20%" constraint="no empty"/>
+															<label id="lblCodigo" />															
+														</cell>
+													</row>
+													<row>
+														
+														<cell>
+															<label value="Nombre Materia" sclass="campoobligatorio" />
+														</cell>
+														<cell>
+															<textbox id="txtNombreMateria" width="97%" constraint="no empty" />
+														</cell>
+														<cell>
+															<label value="Alias" />
+														</cell>
+														<cell>
+															<textbox id="txtAliasMateria" width="97%" constraint="no empty" />
+														</cell>
+													</row>
+													
+													<row>
+														<cell>
+															<label value="Nivel o Semestre" sclass="campoobligatorio" />
+														</cell>
+														<cell>
+															<combobox id="cmbSemestre" width="60%"/>
+														</cell>
+														<cell>
+															<label value="Créditos" sclass="campoobligatorio" />
+														</cell>
+														<cell>
+															<combobox id="cmbCreditos" width="60%" />
+														</cell>
+													</row>
+													
+													<row>
+														<cell />
+														<cell>
+															<checkbox label="Habilitable" id="ckbHabilitable" />
+														</cell>
+														<cell>
+															<checkbox label="Validable" id="ckbValidable"/>
+														</cell>
+														<cell>
+															<checkbox  label="Clasificable" id="ckbClasificable"/>
+														</cell>
+													</row>											
+													
+													<row>
+														<cell />
+														<cell>
+															<label value="H.T." sclass="campoobligatorio" />
+															<intbox id="txtHt" tabindex="11" width="40%" constraint="no empty"/>															
+														</cell>
+														<cell>
+															<label value="H.P." sclass="campoobligatorio" />
+															<intbox id="txtHp" tabindex="12" width="40%" constraint="no empty"/>
+														</cell>
+														<cell>
+															<label value="H.T.P." sclass="campoobligatorio" />
+															<intbox id="txtHtp" tabindex="13" width="40%" constraint="no empty"/>
+														</cell>
+													</row>
+													
+													
+													<row>
+														<cell>
+															<label value="Prerrequisitos" />
+														</cell>
+														<cell>
+															<combobox id="cmbPrerrequisito" width="97%"/>
+														</cell>
+														<cell colspan="2">
+															<listbox id="listaPrerrequisito" width="97%"/>
+														</cell>
+													</row>
+													
+													<row>
+														<cell>
+															<label value="Correquisitos" />
+														</cell>
+														<cell>
+															<combobox id="cmbCorrequisito" width="97%"/>
+														</cell>
+														<cell colspan="2">
+															<listbox id="listaCorrequisito" width="97%" />																
+														</cell>														
+													</row>													
+												</rows>
+											</grid>
+											<separator height="10px;" />
+
+										</groupbox>
+									</hbox>
+								</hlayout>
+							</div>
+						</center>
+					</borderlayout>
+				</div>
+			</center>
+
+			<south border="none" height="100px" >
+				<div width="100%" align="center" sclass="fondoEncabezado">
+					<include id="footerIdx" src="/_sections/footer.zul" />
+				</div>				
+			</south>
+		</borderlayout>
+	</window>
+</zk>

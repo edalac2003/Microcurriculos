@@ -1,0 +1,78 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page title="Ventana Principal de Materias" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/_css/estilos.css" ?>
+
+<zk>	
+	<window id="index" border="0" apply="${inicioAdminCtrl}">	
+		<borderlayout height="630px">			
+<!-- 			<north height="100px" border="0" sclass="fondoEncabezado"> -->
+<!-- 				<include id="headerIdx" src="/_sections/header.zul" />							 -->
+<!-- 			</north> -->
+			<north height="130px" border="0" sclass="fondoEncabezado">
+				<div>
+					<div sclass="div_fecha" align="center">
+						<div sclass="cab_izquierda">
+							<a id="nlcSalir" label="Salir" sclass="enlace_salir"/>
+						</div>
+						<div sclass="cab_centro">
+							<label id="lblUsuarioLogin"/>
+						</div>
+						<div sclass="cab_derecha">
+							<label id="lblFechaActual" value="FechaActual"/>
+						</div>
+					</div>
+					<include id="headerIdx" src="/_sections/header.zul" />
+				</div>								
+			</north>
+			<east width="180px" border="0">
+				<label value="" />
+			</east>			
+			<west width="180px" border="0">
+				<label value="" />
+			</west>
+			
+			<center border="0">
+				<div align="center">
+					<hbox align="center" height="90px">
+						<label value="${labels.materia.titulo}" sclass="tituloFondo"/>
+					</hbox>
+					<div align="center">
+						<vbox>
+							<hbox align="center" height="95px">
+								<a href="/materia/crearMateria.zul" image="/_img/icons/128x128/new.png" />
+								<vbox width="350px">
+									<a href="/materia/crearMateria.zul" label="Crear Materia" sclass="nombreSeccion" />
+									<div sclass="contenidoSeccion">
+										<label value="${labels.materia.mensajeCrear}" />
+									</div>	
+								</vbox>								
+							</hbox>
+							<hbox align="center" height="95px">
+								<a href="/materia/listarMaterias.zul" image="/_img/icons/128x128/list.png" />
+								<vbox width="350px">
+									<a href="/materia/listarMaterias.zul" label="Listar Materias" sclass="nombreSeccion" />	
+									<div sclass="contenidoSeccion">
+										<label value="${labels.materia.mensajeListar}" />
+									</div>	
+								</vbox>	
+							</hbox>							
+							<hbox align="center" height="95px">
+								<a href="/index.zul" image="/_img/icons/128x128/logout_70.png" />
+								<vbox width="350px">
+									<a href="/_ambientes/_admin/inicioAdmin.zul" label="Cerrar Materias" sclass="nombreSeccion" />
+									<div sclass="contenidoSeccion">
+										<label value="${labels.microcurriculo.mensajeCerrar}" />
+									</div>	
+								</vbox>		
+							</hbox>
+						</vbox>
+					</div>
+				</div>
+			</center>
+			
+			<south border="0" height="100px" sclass="fondoEncabezado">		
+				<div> <include id="footerIdx" src="/_sections/footer.zul" /> </div>					
+			</south>
+		</borderlayout>
+	</window>
+</zk>
